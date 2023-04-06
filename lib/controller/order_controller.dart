@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:restaurant_app/model/order_model.dart';
 
 class OrderController extends GetxController {
-  final orders = <Order>[
+  RxList<Order> orders = <Order>[
     Order(
         table: 'Table Balcony',
         dish: ['Pizza', 'Veg Momo'],
@@ -35,4 +35,12 @@ class OrderController extends GetxController {
         table: 'Table 06', dish: ['Veg Chowmein'], quantity: [2], price: [220]),
     Order(table: 'Table 07', dish: ['Pizza'], quantity: [3], price: [300]),
   ].obs;
+
+  void addOrder(Order order) {
+    orders.add(order);
+  }
+
+  void removeOrder(Order order) {
+    orders.remove(order);
+  }
 }
